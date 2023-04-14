@@ -17,13 +17,6 @@ namespace StateCensusTestCases
             Assert.AreEqual(csv.ReadStateCensusData(StateCensusFilePath),sca.ReadStateCensusData(StateCensusFilePath));
         }
         [Test]
-        public void GivenStateCodes_WhenAnalyse_ShouldReturnNoOfRecordsMatches()
-        {
-            StateCensusAnalyser sca = new StateCensusAnalyser();
-            CSVStateCensus csv = new CSVStateCensus();
-            Assert.AreEqual(csv.ReadStateCensusData(StateCensusFilePath), sca.ReadStateCensusData(StateCensusFilePath));
-        }
-        [Test]
         public void GivenStateCensusDataFileIncorrect_WhenAnalyse_ShouldReturnException()
         {
             StateCensusAnalyser sca = new StateCensusAnalyser();
