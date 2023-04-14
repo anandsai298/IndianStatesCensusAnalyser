@@ -15,7 +15,7 @@ namespace IndianStatesCensusAnalyser
             var read=File.ReadAllLines(filepath);
             string header = read[0];
             if(header.Contains("/"))
-                throw new StateCensusException(StateCensusException.ExceptionType.DELIMETER_INCORRECT, "The Symbol of header is inCorrect");
+                throw new StateCensusException(StateCensusException.ExceptionType.DELIMETER_INCORRECT, "INCORRECT DELIMETER");
             using (var reader=new StreamReader(filepath))
             using(var csvreader=new CsvReader(reader,CultureInfo.InvariantCulture))
             {

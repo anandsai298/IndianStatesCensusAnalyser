@@ -6,14 +6,22 @@ namespace StateCensusTestCases
     {
         public string StateCensusFilePath = @"F:\IndianStatesCensusAnalyser\IndianStatesCensusAnalyser\StateCensusTestCases\Files\StateCensusData - StateCensusData.CSV";
         public string StateCensusFilePathtext = @"F:\IndianStatesCensusAnalyser\IndianStatesCensusAnalyser\StateCensusTestCases\Files\StateCensusData - StateCensusData.txt";
-        public string StateCensusFilePathDelimeter = @"F:\IndianStatesCensusAnalyser\IndianStatesCensusAnalyser\StateCensusTestCases\Files\StateCensusData - StateCensusDataDelimeter.csv";
+        public string StateCensusFilePathDelimeter = @"F:\IndianStatesCensusAnalyser\IndianStatesCensusAnalyser\StateCensusTestCases\Files\StateCensusData - StateCensusData - .CSV";
         public string StateCensusFilePathHeader = @"F:\IndianStatesCensusAnalyser\IndianStatesCensusAnalyser\StateCensusTestCases\Files\StateCensusData - StateCensusDataHeader.csv";
+        public string StateCodesFilePath = @"F:\IndianStatesCensusAnalyser\IndianStatesCensusAnalyser\StateCensusTestCases\Files\StateCode - StateCode.csv";
         [Test]
         public void GivenStateCensusData_WhenAnalyse_ShouldReturnNoOfRecordsMatches()
         {
             StateCensusAnalyser sca= new StateCensusAnalyser();
             CSVStateCensus csv=new CSVStateCensus();
             Assert.AreEqual(csv.ReadStateCensusData(StateCensusFilePath),sca.ReadStateCensusData(StateCensusFilePath));
+        }
+        [Test]
+        public void GivenStateCodes_WhenAnalyse_ShouldReturnNoOfRecordsMatches()
+        {
+            StateCensusAnalyser sca = new StateCensusAnalyser();
+            CSVStateCensus csv = new CSVStateCensus();
+            Assert.AreEqual(csv.ReadStateCensusData(StateCensusFilePath), sca.ReadStateCensusData(StateCensusFilePath));
         }
         [Test]
         public void GivenStateCensusDataFileIncorrect_WhenAnalyse_ShouldReturnException()
@@ -36,9 +44,9 @@ namespace StateCensusTestCases
             {
                 int records = sca.ReadStateCensusData(StateCensusFilePathDelimeter);
             }
-            catch (Exception ex)
+            catch (StateCensusException ex)
             {
-                Assert.AreEqual(ex.Message, "The Symbol of header is inCorrect");
+                Assert.AreEqual(ex.Message, "INCORRECT DELIMETER");
             }
         }
         [Test]
